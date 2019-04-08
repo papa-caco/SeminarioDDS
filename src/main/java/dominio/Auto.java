@@ -4,17 +4,24 @@ public class Auto {
 	
 	private int Velocidad;
 
-	private Estado estado;
+	private Motor unMotor;
 	
-	private TanqueCombustible tanqueCombustible;
+	private TanqueCombustible unTanque;
 
-	public Auto(TanqueCombustible t) {
-		this.tanqueCombustible = t;
+	public Auto(TanqueCombustible tanque,Motor motor) {
+		this.unTanque = tanque;
+		this.unMotor = motor;
 	}
 	
 	public boolean estasEnReserva() {
 		
-		return this.tanqueCombustible.estasEnReserva();
+		return this.unTanque.estasEnReserva();
+		
+	}
+	
+	public boolean estasEncendido() {
+		
+		return this.unMotor.estasEnMarcha();
 		
 	}
 }

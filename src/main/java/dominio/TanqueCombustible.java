@@ -2,19 +2,30 @@ package dominio;
 
 public class TanqueCombustible {
 	
-	private int capacidad;
-	private int litros;
+	private int unaCapacidad;
+	private int unaCarga;
 	
-	public boolean estasEnReserva() {
-		
-		return true;
-		
+	public TanqueCombustible(int capacidad, int carga) {
+		this.unaCapacidad = capacidad;
+		this.unaCarga = carga;
+	}
+
+	public boolean enReserva() {
+		return this.unaCarga < this.unaCapacidad * 0.1 ;
 	}
 	
-	public TanqueCombustible(int c, int l) {
-		this.capacidad = c;
-		this.litros = l;
+	public boolean proximoAReserva() {
+		return this.unaCarga < this.unaCapacidad * 0.15 ;
 	}
+	
+	public boolean lleno() {
+		return this.unaCarga == this.unaCapacidad;
+	}
+	
+	public boolean vacio() {
+		return this.unaCarga == 0;
+	}
+	
 	
 
 }
