@@ -21,6 +21,30 @@ public class Motor {
 	public void calentarse(int grados ) {
 		this.unaTemperatura += grados;
 	}
+	
+	public boolean estaEncendido() {
+		return this.unEstado.equals(new Encendido(this));
+	}
+	
+	public boolean estaApagado() {
+		return this.unEstado.equals(new Apagado(this));
+	}
+	
+	public void encenderse() {
+		if (this.estaEncendido()) {
+			throw new YaEncendidoException();
+		} else {
+			this.unEstado.encender(this);
+		}
+	}
+	
+	public void apagarse() {
+		if (this.estaApagado()) {
+			throw new YaApagadoException();
+		} else {
+			this.unEstado.apagar(this);
+		}
+	}
 
 
 }

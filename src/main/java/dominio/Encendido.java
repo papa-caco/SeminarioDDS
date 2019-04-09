@@ -2,6 +2,12 @@ package dominio;
 
 public class Encendido extends Estado {
 	
+	public Encendido(Motor motor) {
+		motor.unEstado = new Encendido(motor);
+		motor.unaTemperatura =70;
+		
+	}
+	
 	@Override
 	public void encender(Motor motor) {
 		throw new YaEncendidoException(); 
@@ -10,7 +16,7 @@ public class Encendido extends Estado {
 
 	@Override
 	public void apagar(Motor motor) {
-		motor.unEstado = new Apagado();
+		motor.unEstado = new Apagado(motor);
 		motor.unaTemperatura = 0;
 	}
 

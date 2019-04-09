@@ -11,15 +11,22 @@ public class Auto {
 		this.unaVelocidad = velocidad;
 	}
 	
+	public void verificoEncendido() {
+		if (this.unMotor.estaApagado()) {
+			throw new YaApagadoException();}	
+	}
+	
 	public boolean utilizaReserva() {
+		this.verificoEncendido();
 		return this.unTanque.enReserva();
 	}
 	
 	public boolean estaEnMarcha() {
-		return this.unMotor.unEstado ==  new Encendido();
+		return this.unMotor.estaEncendido();
 	}
 	
 	public void acelerar(int kms) {
+		this.verificoEncendido();
 		this.unaVelocidad = this.unaVelocidad + kms;
 	}
 	
@@ -28,6 +35,7 @@ public class Auto {
 	}
 	
 	public int temperaturaMotor() {
+		this.verificoEncendido();
 		return this.unMotor.unaTemperatura;
 	}
 }

@@ -14,7 +14,9 @@ public class TestAuto {
 	@Before
 	public void init() {
 		TanqueCombustible tanque = new TanqueCombustible(100, 9);
-		Motor motor = new Motor(0,new Apagado());
+		
+		Motor motor = new Motor(0, apagado);
+		Apagado apagado = new Apagado(motor);
 		this.auto = new Auto(tanque, motor, 0);
 				
 	}
