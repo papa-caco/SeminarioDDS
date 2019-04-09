@@ -22,6 +22,10 @@ public class TanqueCombustible {
 		return this.unaCarga == this.unaCapacidad;
 	}
 	
+	public void consumir(int litros) {
+		this.unaCarga = this.unaCarga - litros;
+	}
+	
 	public boolean vacio() {
 		return this.unaCarga == 0;
 	}

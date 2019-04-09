@@ -13,15 +13,17 @@ public class TestAuto {
 	
 	@Before
 	public void init() {
-		TanqueCombustible tanque = new TanqueCombustible(100, 50);
-		this.auto = new Auto(tanque);
+		TanqueCombustible tanque = new TanqueCombustible(100, 9);
+		Motor motor = new Motor(0,new Apagado());
+		this.auto = new Auto(tanque, motor, 0);
 				
 	}
 	
 	@Test
-	public void autoEstaEnReservaOk() {
-		
-		Assert.assertTrue(this.auto.estasEnReserva());
+	public void temperturaRecienArranco() {
+		Assert.assertTrue(this.auto.temperaturaMotor() == 0);
+		this.auto.encenderMotor();		
+		Assert.assertTrue(this.auto.temperaturaMotor() == 70);
 	}
 
 }

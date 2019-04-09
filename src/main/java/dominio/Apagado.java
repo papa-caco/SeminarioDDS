@@ -3,27 +3,14 @@ package dominio;
 public class Apagado  extends Estado {
 
 	@Override
-	public void Encender(Auto auto) {
-		// TODO Auto-generated method stub
-		
+	public void encender(Motor motor) {
+		motor.unEstado = new Encendido();
+		motor.unaTemperatura = 70;
 	}
 
 	@Override
-	public void Apagar(Auto auto) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void Acelerar(Auto auto) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void Frenar(Auto auto) {
-		// TODO Auto-generated method stub
-		
+	public void apagar(Motor motor) {
+		throw new YaApagadoException();
 	}
 
 }
